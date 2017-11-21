@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#strictly use anaconda build environment
-CC=${PREFIX}/bin/gcc
-CXX=${PREFIX}/bin/g++
+if [[ "$(uname)" == Darwin ]]; then
+    export CXXFLAGS="$CXXFLAGS -stdlib=libstdc++"
+fi
 
 ./configure \
     --prefix="$PREFIX" \
